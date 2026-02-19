@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Forever Home</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+    position: relative;
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4d6d;
+    color: white;
+    position: relative;
+}
+
+.maybe {
+    background: #ddd;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ff4d6d;
+}
+
+/* Cupid */
+.cupid {
+    position: absolute;
+    right: -90px;
+    top: -25px;
+    width: 80px;
+    animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Hey Love ❤️</h1>
+
+<p>
+I’ve been doing a lot of thinking during this break, and honestly… my heart keeps coming back to you.
+I know we’ve had our ups and downs, but what we shared was real, and it still matters to me.
+
+I miss your smile, your laugh, and the way you made even ordinary days feel special.  
+I’m not perfect, but I’m willing to grow, communicate better, and love you the way you deserve.
+
+You’ve always felt like home to me.
+</p>
+
+<h2>Will you be my forever home again? 🥺❤️</h2>
+
+<div style="position:relative; display:inline-block;">
+<button class="yes" onclick="yes()">Yes</button>
+
+<img class="cupid" src="https://i.imgur.com/XQZ7R2T.png">
+
+</div>
+
+<button class="maybe" onclick="maybe()">Let’s talk</button>
+
+<div id="message"></div>
+</div>
+
+<script>
+function yes() {
+    document.getElementById("message").innerHTML =
+    "Thank you for giving us another chance ❤️ I promise to cherish you.";
+}
+
+function maybe() {
+    document.getElementById("message").innerHTML =
+    "I understand. Whenever you're ready, I'm here.";
+}
+
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
