@@ -8,7 +8,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+    background: linear-gradient(to bottom right, #87CEFA, #ffffff);
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -16,6 +16,7 @@ body {
     align-items: center;
 }
 
+/* Main Card */
 .container {
     background: white;
     padding: 40px;
@@ -28,7 +29,7 @@ body {
 }
 
 h1 {
-    color: #ff4d6d;
+    color: #1e90ff;
 }
 
 p {
@@ -46,9 +47,8 @@ button {
 }
 
 .yes {
-    background: #ff4d6d;
+    background: #1e90ff;
     color: white;
-    position: relative;
 }
 
 .maybe {
@@ -62,22 +62,7 @@ button:hover {
 #message {
     margin-top: 20px;
     font-weight: bold;
-    color: #ff4d6d;
-}
-
-/* Cupid */
-.cupid {
-    position: absolute;
-    right: -90px;
-    top: -25px;
-    width: 80px;
-    animation: wiggle 2s infinite;
-}
-
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(0deg); }
+    color: #1e90ff;
 }
 
 /* Floating Hearts */
@@ -89,14 +74,21 @@ button:hover {
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Floating Flowers */
+.flower {
+    position: absolute;
+    font-size: 25px;
+    animation: floatFlower 10s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
 }
 </style>
 </head>
@@ -104,7 +96,7 @@ button:hover {
 <body>
 
 <div class="container">
-<h1>Hey Love ❤️</h1>
+<h1>Hey Love 💙</h1>
 
 <p>
 I’ve been doing a lot of thinking during this break, and honestly… my heart keeps coming back to you.
@@ -116,15 +108,9 @@ I’m not perfect, but I’m willing to grow, communicate better, and love you t
 You’ve always felt like home to me.
 </p>
 
-<h2>Will you be my forever home again? 🥺❤️</h2>
+<h2>Will you be my forever home again? 💙🌸</h2>
 
-<div style="position:relative; display:inline-block;">
 <button class="yes" onclick="yes()">Yes</button>
-
-<img class="cupid" src="https://i.imgur.com/XQZ7R2T.png">
-
-</div>
-
 <button class="maybe" onclick="maybe()">Let’s talk</button>
 
 <div id="message"></div>
@@ -133,7 +119,7 @@ You’ve always felt like home to me.
 <script>
 function yes() {
     document.getElementById("message").innerHTML =
-    "Thank you for giving us another chance ❤️ I promise to cherish you.";
+    "Thank you for giving us another chance 💙 I promise to cherish you.";
 }
 
 function maybe() {
@@ -145,13 +131,23 @@ function maybe() {
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "❤️";
+    heart.innerHTML = "💙";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = Math.random() * 20 + 10 + "px";
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 6000);
-}, 300);
+}, 400);
+
+// Floating flowers
+setInterval(() => {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(flower);
+    setTimeout(() => flower.remove(), 10000);
+}, 800);
 </script>
 
 </body>
